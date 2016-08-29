@@ -1,0 +1,29 @@
+{
+    "appKeys": {
+        "TIME_DIFF": 0
+    },
+    "capabilities": [
+        "configurable"
+    ],
+    "companyName": "szala",
+    "longName": "Duplicity",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/menu_icon_duplicity.png",
+                "menuIcon": true,
+                "name": "IMAGE_MENU_ICON",
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "2",
+    "shortName": "Duplicity",
+    "uuid": "5b7654d9-9c19-4158-ad0c-650b9c0f6d02",
+    "versionCode": 1,
+    "versionLabel": "1.2",
+    "watchapp": {
+        "watchface": true
+    }
+}
