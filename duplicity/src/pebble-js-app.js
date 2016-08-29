@@ -7,7 +7,8 @@ Pebble.addEventListener("ready",
 Pebble.addEventListener("showConfiguration",
   function(e) {
     //Load the remote config page
-    Pebble.openURL("https://dl.dropboxusercontent.com/u/24493566/pebbleDuplicity.html");
+    Pebble.openURL("https://szalaiz.github.io/pebbleDuplicity.html");
+//    Pebble.openURL("https://dl.dropboxusercontent.com/u/24493566/pebbleDuplicity.html");
 //    Pebble.openURL("http://www.googledrive.com/host/0B3fTuczp2gs_cDMxWm9HZ294TkU");
   }
 );
