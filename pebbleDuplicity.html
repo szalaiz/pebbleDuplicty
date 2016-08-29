@@ -1,0 +1,128 @@
+<HTML>  <! (c)2015 by szala>
+
+<HEAD>
+  <TITLE>Duplicity Configuration</TITLE>
+  <LINK rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+  <SCRIPT src="http://code.jquery.com/jquery-2.2.0.min.js"></SCRIPT>
+  <SCRIPT src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></SCRIPT>
+  <STYLE type="text/css">
+    .ui-page {
+      background: #f60;
+      color: #fff;
+    }
+    .ui-bar-a {background: transparent; border: none; color: #fff; text-shadow: none;}
+    .ui-body-b {background: transparent; border: none;}
+    .ui-body-c {color: #fff; text-shadow: none;}
+    .ui-btn-up-d,
+    .ui-btn-hover-d,
+    .ui-btn-up-a,
+    .ui-btn-hover-a:hover {background: transparent; border: 1px solid #fff; box-shadow: none; color: #fff; font-weight: normal; text-transform: uppercase; text-shadow: none;}
+    .ui-btn-hover-d:hover,
+    .ui-btn-up-a {background: #fff; color: #f60;}
+  </STYLE>
+</HEAD>
+
+<BODY>
+  <FORM name="timezoneForm">
+    <DIV data-role="page" id="main">
+      <DIV data-role="header" class="jqm-header">
+        <H1>Settings</H1>
+      </DIV>
+      <DIV data-role="content">
+        <DIV data-role="fieldcontain">
+          <LABEL for="searchingFor" style="display: block; padding-bottom: 0.5em; width: 100%;">Local Time Difference</LABEL>
+          <INPUT type="hidden" name="timeDifference" id="timeDifference" value="0">
+          <TABLE>
+            <TR>
+              <TD>
+                <SELECT name="signBox" id="signBox">
+                  <OPTION value="1" selected>+</OPTION>
+                  <OPTION value="-1">-</OPTION>
+                </SELECT>
+              </TD>
+              <TD> &nbsp; </TD>
+              <TD>
+                <SELECT name="hourDifference" id="hourDifference">
+                  <OPTION value="0" selected>00</OPTION>
+                  <OPTION value="60">01</OPTION>
+                  <OPTION value="120">02</OPTION>
+                  <OPTION value="180">03</OPTION>
+                  <OPTION value="240">04</OPTION>
+                  <OPTION value="300">05</OPTION>
+                  <OPTION value="360">06</OPTION>
+                  <OPTION value="420">07</OPTION>
+                  <OPTION value="480">08</OPTION>
+                  <OPTION value="540">09</OPTION>
+                  <OPTION value="600">10</OPTION>
+                  <OPTION value="660">11</OPTION>
+                  <OPTION value="720">12</OPTION>
+                </SELECT>
+              </TD>
+              <TD><B>:</B></TD>
+              <TD>
+                <SELECT name="minuteDifference" id="minuteDifference">
+                  <OPTION value="0" selected>00</OPTION>
+                  <OPTION value="30">30</OPTION>
+                </SELECT>
+              </TD>
+            </TR>
+          </TABLE>
+        </DIV>
+        <DIV class="ui-body ui-body-b">
+          <FIELDSET class="ui-grid-a">
+            <DIV class="ui-block-a"><BUTTON type="submit" data-theme="d" id="b-reset">Reset</BUTTON></DIV>
+            <DIV class="ui-block-b"><BUTTON type="submit" data-theme="a" id="b-submit">Submit</BUTTON></DIV>
+          </FIELDSET>
+        </DIV>
+        <BR>
+        <BR>
+        <BR>
+        <UL>
+          <LI>
+            <STRONG>Modder</STRONG>
+            <SPAN>Szala</SPAN>
+          </LI>
+          <LI>
+            <STRONG>Based on</STRONG>
+            <SPAN>Simplicity</SPAN>
+          </LI>
+          <LI>
+            <STRONG>Updated</STRONG>
+            <SPAN>Feb 11, 2016</SPAN>
+          </LI>
+        </UL>  
+      </DIV>
+    </DIV>
+  </FORM>
+
+  <SCRIPT>
+    function saveOptions() {
+      timeDifference = parseInt($("#signBox").val()) * (parseInt($("#hourDifference").val()) + parseInt($("#minuteDifference").val()));
+      timezoneForm.timeDifference.value = timeDifference;
+      var options = {
+        timeDifference: $("#timeDifference").val()
+      }
+      return options;
+    }
+
+    function resetOptions() {
+      var options = {
+        timeDifference: "0"
+      }
+      return options;
+    }
+
+    $(document).ready(function() {
+      $('#b-reset').click(function() {
+        var location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(resetOptions()));
+        document.location = location;
+      });
+      $('#b-submit').click(function() {
+        var location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(saveOptions()));
+        document.location = location;
+      });
+    });
+  </SCRIPT>
+</BODY>
+
+</HTML>
